@@ -1,0 +1,435 @@
+body{
+    margin:0;
+    padding: 0;
+    background-color: #1b1b1b;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    header{
+        background-color: #222222c9;
+    }
+
+    #bienvenida, .curso, .habilidades, #carrera{
+        background-color: #222222;
+    }
+
+    h3{
+        color: #A4499A;
+    }
+
+    footer{
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.103);
+    }
+
+    &.dark{
+        background: #e6e6e6;
+
+        h1{
+            color: #261da5;
+        }
+
+        header{
+            background-color: #f1f1f18a;
+        }
+
+        #bienvenida, .curso, .habilidades, #carrera{
+            background-color: #f1f1f1;
+        }
+
+        h2,p{
+            color: #353535;
+        }
+
+        h3{
+            color: #a03d0f;
+        }
+
+        a{
+            color: #222222;
+        }
+
+        a:hover{
+            color: #888888;
+        }
+        
+        #logo img{
+            filter: invert(60%);
+        }
+
+        footer{
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.205);
+        }
+    }
+}
+
+*{
+    color: white
+}
+
+/*general*/
+
+.seccion{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2% 0;
+}
+
+h3{
+    font-weight:bold;
+    font-size: 15px;
+    padding:15px 0 ;
+}
+
+@keyframes mover{
+    0%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes moverinverso{
+    0%{
+        transform: translateX(-100%);
+    }
+}
+
+/*header*/
+
+header{
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0.2em;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+nav ul li{
+    padding-right: 1.5em;
+    font-size: 15px;
+}
+
+nav ul li a{
+    color: rgb(153, 140, 140);
+    text-decoration: none;
+}
+
+header img:hover{
+    filter:drop-shadow(0 0 10px rgba(211, 211, 211, 0.5))
+}
+
+header nav ul li a:hover{
+    color:rgb(223, 204, 204)
+}
+
+.botton{
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .header{
+        display: block;
+    }
+
+    .header nav ul{
+        display: block;
+        margin: 1em;
+        padding: 0;
+
+    }
+    .header nav ul li{
+        margin-bottom: 20px;
+        padding: 10px 0;
+        font-size: 20px;
+        line-height: 0.5em;
+    }
+
+    #logo{
+        display: none;
+    }
+
+    .botton{
+        display: flex;
+        justify-content: center;
+        padding: 0.5em;
+    }
+
+    .botton img:hover{
+        filter: none;
+    }
+
+    .nav{
+        display: none;
+    }
+
+    nav li{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.switch{
+    background-color: #343d5b;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 23px;
+        height: 22px;
+        position: absolute;
+        background: #f1f1f1;
+        top: 0;
+        left: 0;
+        right: unset;
+        border-radius: 100px;
+        transition: .3s ease all;
+        box-shadow: 0 0 2px 2px rgba(0,0,0,.2);
+    }
+    &.active{
+        background: orange;
+        color: black;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+
+    span {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        display: block;
+        background: none;
+        color: white;
+    }
+}
+
+/*presentacion*/
+
+#bienvenida{
+    position: relative;
+    text-align: center;
+    height: 100vh;
+}
+
+h1{
+    font-size: 4em;
+    margin: 0;
+    font-weight: 500;
+    padding-top: 3em;
+    color: #ffff31;
+}
+
+#bienvenida h2{
+    font-size: 4em;
+    margin: 0;
+    font-weight: 500;
+}
+
+#bienvenida div{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+#bienvenida a h4{
+    border: white 0px solid;
+    border-radius: 15px;
+    background-color: #0070C0;
+    padding: 10px 40px;
+    font-weight: 400;
+}
+
+#bienvenida a:hover{
+    transform: scale(1.1)
+}
+
+/* Proyectos */
+
+.contenedor{
+    display:grid;
+    grid-template-columns: 1.5fr 1.2fr;
+    gap: 40px;
+    margin-top: 3em;
+    align-items: center;
+    justify-items: center;
+}
+
+.contenedor-caja{
+    min-width: 200px;
+}
+
+.contenedor-caja img{
+    width: 100%;
+    border:0;
+    border-radius: 3em;
+    max-width: 500px;
+}
+
+.invertido{
+    display:grid;
+    grid-template-columns: 1.2fr 1.5fr ;
+}
+
+@media only screen and (max-width: 800px) {
+    .contenedor {
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+
+    .invertido {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+/*sobre mi*/
+
+#division{
+    display: grid; 
+    grid-template-columns: 1.5fr 1.2fr; 
+    gap: 30px; 
+    align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+    #division{
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+    }
+}
+
+/*Certificaciones*/
+
+#cursos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.curso{
+    border: rgba(83, 80, 80, 0.596) solid 2px;
+    border-radius: 20px;
+    color: rgb(212, 212, 212);
+    padding: 20px 30px;
+}
+
+.curso p{
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.curso a{
+    text-decoration: none;
+    color: rgba(212, 212, 212, 0.76);
+}
+
+.curso a:hover{
+    color: rgb(230, 230, 230);
+}
+
+@media only screen and (max-width: 800px) {
+    #cursos{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*Habilidades*/
+
+#conHab{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.habilidades{
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    padding: 10px 20px;
+    border: rgba(83, 80, 80, 0.596) solid 2px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    #conHab {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        font-size: 13px;
+    }
+}
+
+/*footer*/
+
+footer{
+    padding: 20px;
+}
+
+footer section{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+footer h4{
+    padding: 0;
+    margin: auto 0;
+    color: rgb(117, 117, 117);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#redes{
+    display: flex; 
+    gap: 35px; 
+    filter: invert(40%); 
+    padding-top:8px;
+}
+
+footer img:hover{
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 800px) {
+    footer section{
+        width: 100%;
+    }
+
+    footer h4{
+        font-size: 15px;
+    }
+
+    #redes{
+        gap: 20px;
+    }
+
+}
